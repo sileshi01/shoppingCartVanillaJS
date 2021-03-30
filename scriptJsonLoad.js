@@ -23,6 +23,10 @@ fetch("https://webacademy.se/fakestore/")
         newElement.innerHTML = `<span class="shop-item-id">${pro.id}</span>
                                 <span class="shop-item-title">${pro.title} </span>
                                 <img class="shop-item-image" src="${pro.image}"/>
+                                <details>
+                                    <summary>Read more</summary>
+                                    <p>${pro.description}</p>
+                                </details>
                                 <div class="shop-item-details">
                                 
                                 <span class="shop-item-price">${pro.price}</span>

@@ -1,8 +1,6 @@
 
 const productList = document.querySelector('.shop-items');
 
-
-console.log('script1')
 if(document.readyState == 'loading'){
 document.addEventListener('DOMContentLoad',ready)
 }
@@ -12,11 +10,9 @@ ready()
 
 
 function ready(){
-
+    //
     var removeCartItemButtons= document.getElementsByClassName('btn-danger')
-    console.log(removeCartItemButtons.length);
-    console.log(removeCartItemButtons)
-    for( i=0 ; i < removeCartItemButtons.length ; i++){
+    for( var i=0 ; i < removeCartItemButtons.length ; i++){
         var button = removeCartItemButtons[i];
         button.addEventListener('click', removeCartItem)
     }
@@ -27,9 +23,8 @@ function ready(){
     }
 
     productList.addEventListener('click', addToCartButton);
-    console.log(productList)
- 
-       document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+      
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
     
 }
 
@@ -57,16 +52,14 @@ function addToCartList(product){
     const cartRow = document.createElement('div');
     cartRow.classList.add('cart-row');
     var cartItems = document.getElementsByClassName('cart-items')[0]
-    console.log(cartItems)
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-    console.log(cartItemNames.length)
-    if(cartItemNames.length==0)
+    var cartItemTitle = cartItems.getElementsByClassName('cart-item-title')
+    if(cartItemTitle.length==0)
     {
-        alert('welcome, Now officay you add item to the cart!')  
+        alert('Welcome to our store!')  
     }
     else{
-        for (var i = 0; i < cartItemNames.length; i++) {
-            if (cartItemNames[i].textContent == product.title) {
+        for (var i = 0; i < cartItemTitle.length; i++) {
+            if (cartItemTitle[i].textContent == product.title) {
                 alert('This item is already added to the cart')
                 return
             }
@@ -100,7 +93,6 @@ function removeCartItem(event) {
 function updateCartTotal(){
     
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-   // console.log(cartItemContainer)
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
     var total=0
      for(var i = 0; i< cartRows.length; i++){
