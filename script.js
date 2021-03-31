@@ -10,18 +10,19 @@ ready()
 
 
 function ready(){
-    //
+     //creating remove button
     var removeCartItemButtons= document.getElementsByClassName('btn-danger')
     for( var i=0 ; i < removeCartItemButtons.length ; i++){
         var button = removeCartItemButtons[i];
         button.addEventListener('click', removeCartItem)
     }
+    //creating input field (quantity change button)
     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
     for ( var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
     }
-
+    //creating list of products
     productList.addEventListener('click', addToCartButton);
       
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
@@ -65,8 +66,8 @@ function addToCartList(product){
             }
         }
     }
-   
-    var cartRowContents = `
+   //creating cart elements like image , title  price ,remove buttons
+ var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" src="${product.image}" width="100" height="100">
             <span class="cart-item-title">${product.title}</span>
